@@ -11,7 +11,7 @@ export const register = async (req, res) => { // handles user registration
     // 1: Check if user already exists
     const existingUser = await userModel.findOne({ email });
     if (existingUser)
-      return res.status(400).json({ message: "userModel already exists!" });
+      return res.status(400).json({ message: "user already exists!" });
 
     // 2: Hash password using hashService
     const hashedPassword = await hashPassword(password);
@@ -43,9 +43,8 @@ export const register = async (req, res) => { // handles user registration
       user :{
         name : user.name,
         email : user.email,
-      },
-      accessToken,
-    });
+      } 
+     });
   }
    catch (err) {
     // Handle errors gracefully
@@ -67,22 +66,27 @@ export const login = async (req, res) => { // handles the user login
     if (!isMatch)
       return res.status(400).json({ message: "Invalid email or password" });
 
-    // 3: Generate JWT using jwtServic
+    // 3: Generate JWT using jwtService
     const accessToken = generateToken({
-    id: user._id
+      id: user._id,
     });
 
-//  console.log("refreshToken: ",refreshToken);
+    const refreshToken = generateRefreshToken({ id: user._id });
+    res.cookie('refreshToken', refreshToken, {
+      httpOnly: true,
+      secure: false,
+      sameSite: 'lax',
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+
     // 4: Send success response with accessToken
     res.json({
-    message: "Login successful!",
-    user: {
+      message: 'Login successful!',
+      user: {
         name: user.name,
         email: user.email,
-    },
-    accessToken,
-    refreshToken
-});
+      }
+    });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -90,7 +94,6 @@ export const login = async (req, res) => { // handles the user login
 
 export const refreshToken = async (req, res) => {
   try {
-    console.log("req.cookies.refreshToken :", req.cookies.refreshToken);
 
     const token = req.cookies.refreshToken;
 
