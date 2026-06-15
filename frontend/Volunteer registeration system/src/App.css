@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #111;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  background: #f6f9fc;
+}
+
+.auth-page,
+.dashboard-page {
+  max-width: 420px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}
+
+.auth-page h1,
+.dashboard-page h1 {
+  font-size: 1.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.auth-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.auth-form label {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.auth-form input {
+  width: 100%;
+  border: 1px solid #d2d6dc;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+}
+
+.auth-form input:focus {
+  outline: none;
+  box-shadow: 0 6px 18px rgba(37,99,235,0.12);
+  border-color: rgba(37,99,235,0.6);
+}
+
+.auth-form button {
+  border: 0;
+  border-radius: 12px;
+  padding: 0.95rem 1rem;
+  font-size: 1rem;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.auth-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.auth-form button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(37,99,235,0.12);
+}
+
+.auth-message {
+  margin-top: 1rem;
+  color: #dc2626;
+}
+
+.auth-page p,
+.dashboard-page p {
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+.auth-page a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.welcome {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.profile-card {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f8fafc, #ffffff);
+  border: 1px solid #eef2f7;
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: #2563eb;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.profile-name {
+  font-weight: 600;
+}
+
+.profile-email {
+  color: #4b5563;
+  font-size: 0.95rem;
+}
