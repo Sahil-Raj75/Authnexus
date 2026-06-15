@@ -1,4 +1,4 @@
-# Authnexus
+# Authnexus - Registration System
 Authnexus is a secure authentication API built using **Node.js**, **Express**, **MongoDB**, and **JWT(JSON Web Tokens)**.  
 It provides user registration, login, and token-based authentication — perfect as a backend module for any full-stack app.
 
@@ -11,10 +11,10 @@ It provides user registration, login, and token-based authentication — perfect
 -  Environment variable management via dotenv
 -  RESTful API structure and Express Router
 
-# what i use tech stack :
+# Tech Stacks :
 
-> Backend Framework -  **Express.js** 
-> Database - **MongoDB (Mongoose)** 
+> Backend Framework -  **Express.js**
+> Database - **MongoDB (Mongoose) (Atlas) (Compass - for local storage)** 
 > Authentication-  **JWT (jsonwebtoken)** 
 > Password Hashing - **bcryptjs** 
 > Environment Config - **dotenv** 
